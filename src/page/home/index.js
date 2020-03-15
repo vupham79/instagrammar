@@ -11,6 +11,7 @@ import Header from "../../component/Header";
 import Footer from "../../component/Footer";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
+import Feed from "../../component/Feed";
 const styles = theme => ({
   icon: {
     // marginRight: theme.spacing(2)
@@ -57,9 +58,16 @@ class Album extends React.Component {
         <Header />
         <main>
           <Container className={classes.cardGrid} maxWidth="md">
-            <Grid container spacing={4}>
+            <Grid container>
               {cards.map(card => (
-                <Grid item key={card} xs={12} sm={12} md={12}>
+                <Grid
+                  item
+                  key={card}
+                  xs={12}
+                  sm={12}
+                  md={12}
+                  style={{ marginTop: "1rem" }}
+                >
                   <Card className={classes.card}>
                     <CardMedia
                       className={classes.cardMedia}

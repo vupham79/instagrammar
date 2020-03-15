@@ -4,7 +4,7 @@ export function getPost() {
       type: "SHOW_LOADING"
     });
     dispatch({
-      type: "SET_POST"
+      type: "SET_POSTS"
     });
     dispatch({
       type: "CLOSE_LOADING"
@@ -41,6 +41,15 @@ export function deletePost() {
     });
     dispatch({
       type: "CLOSE_LOADING"
+    });
+  };
+}
+
+export function setNewImage(file) {
+  return dispatch => {
+    dispatch({
+      type: "SET_IMAGE",
+      payload: file
     });
   };
 }
