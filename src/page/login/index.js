@@ -1,22 +1,10 @@
-import React from "react";
-import {
-  Avatar,
-  Button,
-  CssBaseline,
-  TextField,
-  FormControlLabel,
-  Checkbox,
-  Link,
-  Paper,
-  Box,
-  Grid,
-  Typography
-} from "@material-ui/core";
+import { Avatar, Box, Button, Checkbox, CssBaseline, FormControlLabel, Grid, Link, Paper, TextField, Typography } from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import { withStyles } from "@material-ui/styles";
+import React from "react";
 import { connect } from "react-redux";
-import { login } from "../../action";
 import { Redirect } from "react-router";
+import { login } from "../../action";
 
 function Copyright() {
   return (
@@ -38,35 +26,49 @@ const styles = theme => ({
   image: {
     backgroundImage: "url(https://source.unsplash.com/random)",
     backgroundRepeat: "no-repeat",
-    // backgroundColor:
-    //   theme.palette.type === "dark"
-    //     ? theme.palette.grey[900]
-    //     : theme.palette.grey[50],
+    backgroundColor: "grey",
     backgroundSize: "cover",
     backgroundPosition: "center"
   },
   paper: {
-    // margin: theme.spacing(8, 4),
+    margin: 8,
     display: "flex",
     flexDirection: "column",
     alignItems: "center"
   },
   avatar: {
-    // margin: theme.spacing(1),
-    // backgroundColor: theme.palette.secondary.main
+    margin: 1,
   },
   form: {
-    width: "100%" // Fix IE 11 issue.
-    // marginTop: theme.spacing(1)
+    width: "100%", // Fix IE 11 issue.
+    marginTop: 1
   },
   submit: {
-    // margin: theme.spacing(3, 0, 2)
+    margin: "3 0 2"
   }
 });
 
 class SignInSide extends React.Component {
+  state = {
+    email: "prc391",
+    password: "prc391"
+  };
+
+  inputEmail = e => {
+    this.setState({
+      email: e.target.value
+    });
+  };
+
+  inputPassword = e => {
+    this.setState({
+      password: e.target.value
+    });
+  };
+
   render() {
     const { classes, isLogin, login } = this.props;
+    const { email, password } = this.state;
     if (isLogin) {
       return <Redirect to="/" />;
     }
@@ -92,12 +94,16 @@ class SignInSide extends React.Component {
               name="email"
               autoComplete="email"
               autoFocus
+              value={email}
+              onChange={this.inputEmail}
             />
             <TextField
               variant="outlined"
               margin="normal"
               required
               fullWidth
+              value={password}
+              onChange={this.inputPassword}
               name="password"
               label="Password"
               type="password"
@@ -114,7 +120,7 @@ class SignInSide extends React.Component {
               variant="contained"
               color="primary"
               className={classes.submit}
-              onClick={login}
+              onClick={() => login(email, password)}
             >
               Sign In
             </Button>
@@ -145,7 +151,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  login: () => dispatch(login())
+  login: (email, password) => dispatch(login(email, password))
 });
 
 export default connect(

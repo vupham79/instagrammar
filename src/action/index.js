@@ -1,14 +1,7 @@
-import { login, logout } from "./user";
+import { getAllUsers } from "./admin";
+import { addPost, deletePost, getPost, getPosts, setNewImage, updatePost } from "./post";
 import { closeLoading, showLoading } from "./spinner";
-import { addPost, deletePost, getPost, updatePost } from "./post";
+import { deleteAvatar, deleteMe, getAvatar, getMe, login, logout, logoutAll, signup, updateAvatar, updateMe } from "./user";
 
-export {
-  login,
-  logout,
-  showLoading,
-  closeLoading,
-  addPost,
-  deletePost,
-  getPost,
-  updatePost
-};
+export { login, logout, showLoading, closeLoading, addPost, deletePost, getPost, updatePost, deleteAvatar, deleteMe, getAvatar, getMe, logoutAll, signup, updateAvatar, updateMe, getPosts, setNewImage, getAllUsers };
+

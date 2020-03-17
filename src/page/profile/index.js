@@ -1,44 +1,41 @@
-import React from "react";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Container from "@material-ui/core/Container";
-import { ExitToApp, AddAPhoto, Add } from "@material-ui/icons";
-import Header from "../../component/Header";
-import Footer from "../../component/Footer";
-import { withStyles } from "@material-ui/styles";
-import { logout } from "../../action";
-import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
-import toastr from "toastr";
-import TagsInput from "react-tagsinput";
-import "react-tagsinput/react-tagsinput.css"; // If using WebPack and style-loader.
 import {
+  Avatar,
   Button,
   Dialog,
   DialogActions,
   DialogContent,
-  DialogTitle,
-  Paper,
   IconButton,
-  Avatar,
-  TextField,
   Input
 } from "@material-ui/core";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Container from "@material-ui/core/Container";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import { Add, AddAPhoto, ExitToApp } from "@material-ui/icons";
+import { withStyles } from "@material-ui/styles";
+import React from "react";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import TagsInput from "react-tagsinput";
+import "react-tagsinput/react-tagsinput.css"; // If using WebPack and style-loader.
+import toastr from "toastr";
+import { logout } from "../../action";
+import Footer from "../../component/Footer";
+import Header from "../../component/Header";
 
 const styles = theme => ({
   icon: {
-    // marginRight: theme.spacing(2)
+    marginRight: 2
   },
   heroContent: {
     // backgroundColor: theme.palette.background.paper
-    // padding: theme.spacing(8, 0, 6)
+    padding: "8 0 6"
   },
   heroButtons: {
-    // marginTop: theme.spacing(4)
+    marginTop: 4
   },
   cardGrid: {
     paddingTop: 10,
@@ -55,7 +52,6 @@ const styles = theme => ({
   cardContent: {
     flexGrow: 1
   },
-  large: {}
 });
 
 const imgStyles = {
